@@ -3,6 +3,8 @@ import { createInventory } from '../node_modules/decentraland-builder-scripts/in
 import Script1 from "../ff9257ec-9d62-404f-97c7-cf19c4035761/src/item"
 import * as utils from '@dcl/ecs-scene-utils'
 import { hud } from 'dcl-builder-hud'
+import { SmokeSource, ThrowSmoke } from './modules/smokeSource'
+import { SmokeSystem } from './modules/smoke'
 
 
 const _scene = new Entity('_scene')
@@ -99,3 +101,12 @@ const script1 = new Script1()
 script1.init()
 script1.spawn(fantasyChest, {"onClickText":"Open/Close","onClick":[{"entityName":"fantasyChest","actionId":"toggle","values":{}}]}, createChannel(channelId, fantasyChest, channelBus))
 
+
+//SMOKE
+// Add a smoke source that creates a smoke puff every 0.2 seconds
+fantasyChest.addComponent(new SmokeSource(0.2))
+engine.addEntity(fantasyChest)
+
+// Initiate systems
+engine.addSystem(new ThrowSmoke())
+engine.addSystem(new SmokeSystem())
