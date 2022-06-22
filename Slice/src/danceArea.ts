@@ -8,11 +8,17 @@ export const danceAreas: any = [
   {
     transform: {
       position: new Vector3(8, 0, 8),
-      scale: new Vector3(1, 1, 1)
+      scale: new Vector3(15, 3, 15)
     },
     type: PredefinedEmote.ROBOT
   },
-
+  // {
+  //   transform: {
+  //     position: new Vector3(10, 0, 10),
+  //     scale: new Vector3(4, 4, 4)
+  //   },
+  //   type: PredefinedEmote.DISCO
+  // }
 ]
 
 ////// DEBUG FLAG - Set to true to view all dance areas
@@ -35,11 +41,11 @@ export class DanceSystem {
     PredefinedEmote.ROBOT,
     PredefinedEmote.TIK,
     PredefinedEmote.HAMMER,
-    // PredefinedEmote.TEKTONIK,
-    // PredefinedEmote.HEAD_EXPLODDE,
-    // PredefinedEmote.HANDS_AIR,
-    // PredefinedEmote.DISCO,
-    // PredefinedEmote.DAB
+    PredefinedEmote.TEKTONIK,
+    PredefinedEmote.HEAD_EXPLODDE,
+    PredefinedEmote.HANDS_AIR,
+    PredefinedEmote.DISCO,
+    PredefinedEmote.DAB
   ]
 
   constructor(routine: PredefinedEmote) {
@@ -121,8 +127,8 @@ export class DanceSystem {
 for (const i in danceAreas) {
   const area = new Entity('dance-' + i)
   area.addComponent(new Transform(danceAreas[i].transform))
-  hud.attachToEntity(danceAreas)
-  hud.attachToEntity(area)
+  // hud.attachToEntity(danceAreas)
+  // hud.attachToEntity(area)
 
 
   void executeTask(async () => {
@@ -143,7 +149,7 @@ for (const i in danceAreas) {
            area.getComponent(Transform).scale.y,
            area.getComponent(Transform).scale.z
         ),
-        new Vector3(15, 15, 15)
+        new Vector3(0, 2.5, 0)
       ),
       {
         enableDebug: false,

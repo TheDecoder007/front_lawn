@@ -22,9 +22,9 @@
   "bundledDependencies": [
     "@dcl/ecs-scene-utils",
     "dcl-builder-hud"
-  ],
-  "bundleDependencies": [
-    "@dcl/ecs-scene-utils",
-    "dcl-builder-hud"
   ]
+  // "bundleDependencies": [
+  //   "@dcl/ecs-scene-utils",
+  //   "dcl-builder-hud"
+  // ]
 }

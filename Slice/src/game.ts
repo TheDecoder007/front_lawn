@@ -98,3 +98,4 @@ const options = { inventory }
 const script1 = new Script1()
 script1.init()
 script1.spawn(fantasyChest, {"onClickText":"Open/Close","onClick":[{"entityName":"fantasyChest","actionId":"toggle","values":{}}]}, createChannel(channelId, fantasyChest, channelBus))
+
