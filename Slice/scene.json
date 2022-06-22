@@ -1,0 +1,34 @@
+{
+  "display": {
+    "title": "Gold Bars",
+    "favicon": "favicon_asset",
+    "navmapThumbnail": "scene-thumbnail.png"
+  },
+  "owner": "",
+  "contact": {
+    "name": "Murpheus",
+    "email": ""
+  },
+  "main": "bin/game.js",
+  "tags": [],
+  "scene": {
+    "parcels": [
+      "142,107"
+    ],
+    "base": "142,107"
+  },
+  "source": {
+    "version": 1,
+    "origin": "builder",
+    "projectId": "051f2df4-b0c5-46cf-88cb-e6260c2555a7",
+    "point": {
+      "x": 0,
+      "y": 0
+    },
+    "rotation": "south",
+    "layout": {
+      "rows": 1,
+      "cols": 1
+    }
+  }
+}
