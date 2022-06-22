@@ -10,7 +10,7 @@ export const danceAreas: any = [
       position: new Vector3(8, 0, 8),
       scale: new Vector3(15, 3, 15)
     },
-    type: PredefinedEmote.ROBOT
+    type: 'all'
   },
   // {
   //   transform: {
@@ -36,16 +36,15 @@ export class DanceSystem {
   }
 
   routines: PredefinedEmote[] = [
-    // PredefinedEmote.DANCE,
 
     PredefinedEmote.ROBOT,
     PredefinedEmote.TIK,
     PredefinedEmote.HAMMER,
     PredefinedEmote.TEKTONIK,
-    PredefinedEmote.HEAD_EXPLODDE,
-    PredefinedEmote.HANDS_AIR,
     PredefinedEmote.DISCO,
     PredefinedEmote.DAB
+    // PredefinedEmote.HEAD_EXPLODDE,
+    // PredefinedEmote.HANDS_AIR,
   ]
 
   constructor(routine: PredefinedEmote) {
