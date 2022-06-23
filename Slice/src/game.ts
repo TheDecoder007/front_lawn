@@ -104,7 +104,7 @@ script1.spawn(fantasyChest, {"onClickText":"Open/Close","onClick":[{"entityName"
 
 //SMOKE
 // Add a smoke source that creates a smoke puff every 0.2 seconds
-fantasyChest.addComponent(new SmokeSource(0.2))
+fantasyChest.addComponent(new SmokeSource(0.3))
 engine.addEntity(fantasyChest)
 
 // Initiate systems

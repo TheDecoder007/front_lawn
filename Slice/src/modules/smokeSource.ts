@@ -35,7 +35,7 @@ smokeMaterial.alphaTexture = smokeTexture
 
 smokeMaterial.metallic = 0
 smokeMaterial.roughness = 1
-
+smokeMaterial.transparencyMode = 0
 // Reusable shape component for smoke puffs
 const smokeShape = new PlaneShape()
 smokeShape.withCollisions = false
