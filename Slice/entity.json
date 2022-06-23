@@ -23,7 +23,11 @@
                 {
                 "file": "textures/smoke-puff2.png",
                 "hash": "QmRjsejLzYgM1dbKKWjwmERUHsMSMCqNsQ7aSpB6ps9479"
-                }
+                },
+                {
+                    "file": "textures/smoke-puff3.png",
+                    "hash": "QmRjsejLzYgM1dbKKWjwmERUHsMSMCqNsQ7aSpB6ps9479"
+                    }
     ], 
     "metadata": {
         "display": {

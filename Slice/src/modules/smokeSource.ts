@@ -4,7 +4,7 @@ import { SmokeVelocity } from './smoke'
 export class SmokeSource {
   smokeInterval: number = 3
   nextSmoke: number = this.smokeInterval
-  constructor(interval: number = 3) {
+  constructor(interval: number = 10) {
     this.smokeInterval = interval
   }
 }
