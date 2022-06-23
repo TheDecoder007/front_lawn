@@ -17,6 +17,16 @@
     ],
     "base": "142,107"
   },
+  "communications": {
+    "type": "webrtc",
+    "signalling": "https://signalling-01.decentraland.org"
+  },
+  "policy": {
+    "contentRating": "E",
+    "fly": true,
+    "voiceEnabled": true,
+    "blacklist": []
+  },
   
   "source": {
     "version": 1,
