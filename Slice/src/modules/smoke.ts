@@ -34,8 +34,8 @@ export class SmokeSystem implements ISystem {
 
       transform.scale.setAll(newScale)
 
-      velocity.x *= 0.995
-      velocity.z *= 0.995
+      velocity.x *= 1
+      velocity.z *= 1
 
       if (isOutOfBounds(transform)) {
         engine.removeEntity(entity)
@@ -47,7 +47,7 @@ export class SmokeSystem implements ISystem {
 // Function to check if smoke is too far from source
 function isOutOfBounds(transform: Transform) {
   if (
-    transform.position.y > 4 ||
+    transform.position.y > 2.5 ||
     transform.position.x > 1.5 ||
     transform.position.z > 1.5 ||
     transform.position.x < -1.5 ||
