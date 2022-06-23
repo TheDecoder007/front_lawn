@@ -1,0 +1,61 @@
+{
+    "type": "scene",
+    "pointers": [
+    "142,107"
+    ],
+    "content": [
+        {
+            "file": "LICENSE",
+            "hash": "QmSV2n41aVYKfHKGvG6smPxCzqgSABasZ75omyT1hzZpNA"
+            },
+        {
+            "file": "bin/game.js",
+            "hash": "QmfJ9sZki4nXmkVuF9BNEyH9napHiZGePeR2oz38RtbFWe"
+            },
+            {
+                "file": "scene.json",
+                "hash": "QmUYHgnqsv1zZv5LGEgxwFff865jPeMA9pcAQUPQMxYF5b"
+                },
+                {
+                "file": "screenshot/screenshot.png",
+                "hash": "QmNgkK2L2i12WpKn2EReLndeDdyHybsLgZyfEpqdj71HnM"
+                },
+                {
+                "file": "textures/smoke-puff2.png",
+                "hash": "QmRjsejLzYgM1dbKKWjwmERUHsMSMCqNsQ7aSpB6ps9479"
+                },
+                {
+                    "file": "textures/smoke-puff3.png",
+                    "hash": "QmRjsejLzYgM1dbKKWjwmERUHsMSMCqNsQ7aSpB6ps9479"
+                    }
+    ], 
+    "metadata": {
+        "display": {
+        "title": "interactive-text",
+        "favicon": "favicon_asset"
+        },
+        "contact": {
+        "name": "author-name",
+        "email": ""
+        },
+        "owner": "",
+        "scene": {
+        "parcels": [
+        "142,107"
+        ],
+        "base": "142,107"
+        },
+        "communications": {
+        "type": "webrtc",
+        "signalling": "https://signalling-01.decentraland.org"
+        },
+        "policy": {
+        "contentRating": "E",
+        "fly": true,
+        "voiceEnabled": true,
+        "blacklist": []
+        },
+        "main": "bin/game.js",
+        "tags": []
+    }
+}

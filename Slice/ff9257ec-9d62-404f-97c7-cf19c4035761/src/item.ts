@@ -1,4 +1,8 @@
 import { ApeShit } from "src/data"
+import { SmokeSource, ThrowSmoke } from '../../src/modules/smokeSource'
+import { SmokeSystem } from '../../src/modules/smoke'
+import { smokeSpawner } from '../../src/modules/smokeSource'
+
 
 export type Props = {
   onClick?: Actions
@@ -47,12 +51,19 @@ export default class Button implements IScript<Props> {
     openClip.stop()
 
     door.addComponent(new GLTFShape('ff9257ec-9d62-404f-97c7-cf19c4035761/models/Chest_Fantasy.glb'))
+ 
+//ADDING SMOKE SOURCE
+door.addComponent(new SmokeSource(0.4))
+engine.addEntity(door)
 
+    
     door.addComponent(
       new OnPointerDown(
         () => {
           channel.sendActions(props.onClick)
-        },
+          engine.addSystem(new ThrowSmoke())
+          engine.addSystem(new SmokeSystem())
+        },        
         {
           button: ActionButton.POINTER,
           hoverText: 'Gold "Bars"',
@@ -65,25 +76,36 @@ export default class Button implements IScript<Props> {
 
     // handle actions
     channel.handleAction('open', ({ sender }) => {
+
       if (!this.active[door.name]) {
         this.toggle(door, true)
-      }
-        if (sender === channel.id) {
+      }      
+
+      if (sender === channel.id) {
+
           channel.sendActions(props.onOpen)
-          
-      }
+
+      }    
     })
+
     channel.handleAction('close', ({ sender }) => {
       if (this.active[door.name]) {
+        
         this.toggle(door, false)
+
       }
       if (sender === channel.id) {
         channel.sendActions(props.onClose)
+        //smoke
       }
     })
+
     channel.handleAction('toggle', ({ sender }) => {
       const newValue = !this.active[door.name]
       this.toggle(door, newValue)
+      // engine.removeSystem(new ThrowSmoke())
+      // engine.removeSystem(new SmokeSystem())
+      // smokeSpawner.MAX_POOL_SIZE = 0
 
       if (sender === channel.id) {
         channel.sendActions(newValue ? props.onOpen : props.onClose)
