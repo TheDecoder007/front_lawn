@@ -44,7 +44,7 @@ const billboard = new Billboard(false, true, false)
 
 // Spawner object to generate smoke puffs
 export const smokeSpawner = {
-  MAX_POOL_SIZE: 50,
+  MAX_POOL_SIZE: 20,
   pool: [] as Entity[],
 
   getEntityFromPool(): IEntity | null {

@@ -3,8 +3,10 @@ import { createInventory } from '../node_modules/decentraland-builder-scripts/in
 import Script1 from "../ff9257ec-9d62-404f-97c7-cf19c4035761/src/item"
 import * as utils from '@dcl/ecs-scene-utils'
 import { hud } from 'dcl-builder-hud'
-import { SmokeSource, ThrowSmoke } from './modules/smokeSource'
-import { SmokeSystem } from './modules/smoke'
+
+import { getUserData } from "@decentraland/Identity"
+
+
 
 
 const _scene = new Entity('_scene')
@@ -102,6 +104,100 @@ script1.init()
 script1.spawn(fantasyChest, {"onClickText":"Open/Close","onClick":[{"entityName":"fantasyChest","actionId":"toggle","values":{}}]}, createChannel(channelId, fantasyChest, channelBus))
 
 
+//CODE FOR MIRROR
+// const stand = new Entity();
+// stand.addComponent(new BoxShape());
+// stand.addComponent(new Transform({ position: new Vector3(8.0, -0, 10.3),
+//   rotation: new Quaternion(0,180,0),
+//   scale: new Vector3(0.8, 0.1, 0.9) }));
+// engine.addEntity(stand);
+
+const avatar = new Entity();
+const avatarShape = new AvatarShape();
+// hud.attachToEntity(stand)
+
+
+avatarShape.bodyShape = "urn:decentraland:off-chain:base-avatars:BaseFemale";
+avatarShape.wearables = [
+  "urn:decentraland:off-chain:base-avatars:f_sweater",
+  "urn:decentraland:off-chain:base-avatars:f_jeans",
+  "urn:decentraland:off-chain:base-avatars:bun_shoes",
+  "urn:decentraland:off-chain:base-avatars:standard_hair",
+  "urn:decentraland:off-chain:base-avatars:f_eyes_00",
+  "urn:decentraland:off-chain:base-avatars:f_eyebrows_00",
+  "urn:decentraland:off-chain:base-avatars:f_mouth_00",
+];
+avatarShape.skinColor = new Color4(0.94921875, 0.76171875, 0.6484375, 1);
+avatarShape.eyeColor = new Color4(0.23046875, 0.625, 0.3125, 1);
+avatarShape.hairColor = new Color4(0.234375, 0.12890625, 0.04296875, 1);
+avatar.addComponent(avatarShape);
+avatar.addComponent(new Transform({ position: new Vector3(2.3, -1.16, 13.3),
+  rotation: new Quaternion(0,180,0),
+  scale: new Vector3(2.5, 2.5, 2.5) }));
+engine.addEntity(avatar);
+hud.attachToEntity(avatar)
+
+
+
+void getUserData().then(async a => {
+  const res = await fetch(`https://peer.decentraland.org/lambdas/profiles/${a?.publicKey}`)
+  const json = await res.json()
+  const av = json.avatars[0].avatar
+  avatarShape.bodyShape = av.bodyShape
+  avatarShape.skinColor = new Color4(av.skin.color.r, av.skin.color.g, av.skin.color.b, 1);
+  avatarShape.eyeColor = new Color4(av.eyes.color.r, av.eyes.color.g, av.eyes.color.b, 1);
+  avatarShape.hairColor = new Color4(av.hair.color.r, av.hair.color.g, av.hair.color.b, 1);
+  avatarShape.wearables = av.wearables
+
+})
+
+//MIRROR 2
+// const stand = new Entity();
+// stand.addComponent(new BoxShape());
+// stand.addComponent(new Transform({ position: new Vector3(8.0, -0, 10.3),
+//   rotation: new Quaternion(0,180,0),
+//   scale: new Vector3(0.8, 0.1, 0.9) }));
+// engine.addEntity(stand);
+
+const avatar2 = new Entity();
+const avatarShape2 = new AvatarShape();
+// hud.attachToEntity(stand)
+
+
+avatarShape2.bodyShape = "urn:decentraland:off-chain:base-avatars:BaseFemale";
+avatarShape2.wearables = [
+  "urn:decentraland:off-chain:base-avatars:f_sweater",
+  "urn:decentraland:off-chain:base-avatars:f_jeans",
+  "urn:decentraland:off-chain:base-avatars:bun_shoes",
+  "urn:decentraland:off-chain:base-avatars:standard_hair",
+  "urn:decentraland:off-chain:base-avatars:f_eyes_00",
+  "urn:decentraland:off-chain:base-avatars:f_eyebrows_00",
+  "urn:decentraland:off-chain:base-avatars:f_mouth_00",
+];
+avatarShape2.skinColor = new Color4(0.94921875, 0.76171875, 0.6484375, 1);
+avatarShape2.eyeColor = new Color4(0.23046875, 0.625, 0.3125, 1);
+avatarShape2.hairColor = new Color4(0.234375, 0.12890625, 0.04296875, 1);
+avatar2.addComponent(avatarShape2);
+avatar2.addComponent(new Transform({ position: new Vector3(13.5, -1.16, 12.8),
+  rotation: new Quaternion(0,180,0),
+  scale: new Vector3(2.5, 2.5, 2.5) }));
+engine.addEntity(avatar2);
+hud.attachToEntity(avatar2)
+
+
+
+void getUserData().then(async a => {
+  const res = await fetch(`https://peer.decentraland.org/lambdas/profiles/${a?.publicKey}`)
+  const json = await res.json()
+  const av = json.avatars[0].avatar
+  avatarShape2.bodyShape = av.bodyShape
+  avatarShape2.skinColor = new Color4(av.skin.color.r, av.skin.color.g, av.skin.color.b, 1);
+  avatarShape2.eyeColor = new Color4(av.eyes.color.r, av.eyes.color.g, av.eyes.color.b, 1);
+  avatarShape2.hairColor = new Color4(av.hair.color.r, av.hair.color.g, av.hair.color.b, 1);
+  avatarShape2.wearables = av.wearables
+})
+
+
 //SMOKE
 // Add a smoke source that creates a smoke puff every 0.2 seconds
 // fantasyChest.addComponent(new SmokeSource(0.4))
@@ -110,3 +206,4 @@ script1.spawn(fantasyChest, {"onClickText":"Open/Close","onClick":[{"entityName"
 // Initiate systems
 // engine.addSystem(new ThrowSmoke())
 // engine.addSystem(new SmokeSystem())
+
