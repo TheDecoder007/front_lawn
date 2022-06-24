@@ -3,7 +3,6 @@ import { createInventory } from '../node_modules/decentraland-builder-scripts/in
 import Script1 from "../ff9257ec-9d62-404f-97c7-cf19c4035761/src/item"
 import * as utils from '@dcl/ecs-scene-utils'
 import { hud } from 'dcl-builder-hud'
-
 import { getUserData } from "@decentraland/Identity"
 
 
@@ -196,6 +195,8 @@ void getUserData().then(async a => {
   avatarShape2.hairColor = new Color4(av.hair.color.r, av.hair.color.g, av.hair.color.b, 1);
   avatarShape2.wearables = av.wearables
 })
+
+
 
 
 //SMOKE
